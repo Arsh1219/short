@@ -6,13 +6,11 @@ ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y git tzdata python3-pip
+    apt-get install -y git tzdata python3-pip imagemagick ffmpeg
 
 RUN ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime
 
 WORKDIR /usr/src/app
-
-RUN apt-get install imagemagick ffmpeg -y
 
 RUN sed -i '/<policy domain="path" rights="none" pattern="@\*"/d' /etc/ImageMagick-6/policy.xml
 
