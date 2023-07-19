@@ -6,8 +6,10 @@ max_choices = 20
 ui_asset_dataframe = gr.Dataframe(interactive=False)
 LOGO_PATH = "http://localhost:31415/file=public/logo.png"
 LOGO_DIM = 64
+
+
 def run_app(colab=False):
-    with gr.Blocks(css="footer {visibility: hidden}", title="ShortGPT Demo" ) as shortGptUI:
+    with gr.Blocks(css="footer {visibility: hidden}", title="ShortGPT Demo") as shortGptUI:
         with gr.Row(variant='compact'):
             gr.HTML(f'''
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px;">
@@ -25,6 +27,9 @@ def run_app(colab=False):
         content_automation = create_content_automation(shortGptUI)
         asset_library_ui = create_asset_library_ui()
         config_ui = create_config_ui()
-    shortGptUI.queue(concurrency_count=5, max_size=20).launch(server_port=31415, height=1000, share=colab)
+    shortGptUI.queue(concurrency_count=5, max_size=20).launch(
+        server_port=31415, height=1000, share=True)
+
+
 if __name__ == "__main__":
     run_app()
