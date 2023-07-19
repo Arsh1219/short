@@ -1,5 +1,11 @@
 FROM ubuntu:20.04
 
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y tzdata
+
+RUN ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime
+
 WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get install -y \
