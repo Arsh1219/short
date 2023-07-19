@@ -2,6 +2,9 @@ FROM python
 
 WORKDIR /usr/src/app
 
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
 RUN apt-get update -y
 RUN apt-get upgrade -y
 
