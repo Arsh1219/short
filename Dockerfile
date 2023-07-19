@@ -20,4 +20,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD [ "python", "runShortGPT.py" ]
+CMD [ "python3", "runShortGPT.py" ]
