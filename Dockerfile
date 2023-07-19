@@ -2,9 +2,10 @@ FROM python
 
 WORKDIR /usr/src/app
 
-RUN apt-get install imagemagick
+RUN apt-get update -y
+RUN apt-get upgrade -y
 
-RUN apt-get install ffmpeg
+RUN apt-get install imagemagick ffmpeg -y
 
 COPY requirements.txt requirements.txt
 
