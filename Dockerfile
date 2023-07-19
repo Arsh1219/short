@@ -6,9 +6,8 @@ ENV PYTHONUNBUFFERED 1
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y git
+    apt-get install -y git tzdata python3-pip
 
-RUN apt-get install -y tzdata python3-pip
 RUN ln -fs /usr/share/zoneinfo/Etc/UTC /etc/localtime
 
 WORKDIR /usr/src/app
