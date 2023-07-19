@@ -10,6 +10,9 @@ RUN apt-get upgrade -y
 
 RUN apt-get install imagemagick ffmpeg -y
 
+RUN !sed -i '/<policy domain="path" rights="none" pattern="@\*"/d' /etc/ImageMagick-6/policy.xml
+
+
 COPY requirements.txt requirements.txt
 
 RUN pip install -r requirements.txt
